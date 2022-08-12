@@ -15,7 +15,7 @@ public class Rope : MonoBehaviour
     [SerializeField] private float CollidersYOffset = 2f;
 
     [Header("Rope rigidbody settings")]
-    [SerializeField, Tooltip("How much weights each node")] private float NodeWeight = 0.2f;
+    [SerializeField, Tooltip("How may weights each node")] private float NodeWeight = 0.2f;
     [SerializeField] private CollisionDetectionMode CollisionQuality = CollisionDetectionMode.Continuous;
 
     [Header("Rope material")]
@@ -34,6 +34,23 @@ public class Rope : MonoBehaviour
         InitializeRope();
     }
 
+    void OnValidate()
+    {
+        ResetRope();
+    }
+
+    void ResetRope()
+    {
+        RopeNodes.Clear();
+
+        foreach(Transform child in transform)
+        {
+            Destroy(child);
+        }
+
+        InitializeRope();
+    }
+
     void InitializeRope()
     {
         RopeReady = false;
@@ -43,6 +60,8 @@ public class Rope : MonoBehaviour
 
         if (RopeNodes.Count == 0)
             lastNode = transform;
+
+        //RopeNodes.Add(transform);
 
         for (int i = 0; i < RopeLength; i++)
         {
