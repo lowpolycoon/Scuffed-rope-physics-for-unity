@@ -44,8 +44,6 @@ public class Rope : MonoBehaviour
         if (RopeNodes.Count == 0)
             lastNode = transform;
 
-        RopeNodes.Add(transform);
-
         for (int i = 0; i < RopeLength; i++)
         {
             for (int j = 0; j < RopeQuality; j++)
