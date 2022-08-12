@@ -11,17 +11,17 @@ public class Rope : MonoBehaviour
     [SerializeField, Tooltip("Anchors the end of the rope")] private bool AnchorEnd = false;
 
     [Header("Rope colliders settings")]
-    [SerializeField] private float CollidersRadius = 0.1f;
-    [SerializeField] private float CollidersYOffset = 0.1f;
+    [SerializeField] private float CollidersRadius = 0.5f;
+    [SerializeField] private float CollidersYOffset = 2f;
 
     [Header("Rope rigidbody settings")]
-    [SerializeField, Tooltip("How may weights each node")] private float NodeWeight = 0.2f;
+    [SerializeField, Tooltip("How much weights each node")] private float NodeWeight = 0.2f;
     [SerializeField] private CollisionDetectionMode CollisionQuality = CollisionDetectionMode.Continuous;
 
     [Header("Rope material")]
     [SerializeField] private Material RopeMaterial;
     [SerializeField] private LineTextureMode TextureMode = LineTextureMode.Tile;
-    [SerializeField] private bool UseWorldSpace;
+    [SerializeField] private bool UseWorldSpace = true;
     private LineRenderer Lrend;
 
     // ROPE NODES SETTINGS //
